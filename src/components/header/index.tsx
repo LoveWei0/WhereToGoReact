@@ -12,7 +12,7 @@ export default function Header({ title }: TitleType) {
         <div className="header-back">
           <svg width="42" height="42">
             <polyline
-              points="25,13 16,21 15,29"
+              points="25,13 16,21 25,29"
               stroke="#fff"
               strokeWidth="2"
               fill="none"
