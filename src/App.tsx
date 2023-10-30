@@ -17,6 +17,9 @@ export default function App() {
         <Journey />
         <DepartDate />
         <HighSpeed />
+        <div className="submit">
+          <button className="submit-button"> 搜索 </button>
+        </div>
       </form>
     </>
   )
