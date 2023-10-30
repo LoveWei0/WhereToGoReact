@@ -6,6 +6,7 @@ import Header from './components/header'
 import Journey from './components/journey'
 import DepartDate from './components/departDate'
 import HighSpeed from './components/highSpeed'
+import Submit from './components/submit'
 
 export default function App() {
   return (
@@ -17,9 +18,7 @@ export default function App() {
         <Journey />
         <DepartDate />
         <HighSpeed />
-        <div className="submit">
-          <button className="submit-button"> 搜索 </button>
-        </div>
+        <Submit />
       </form>
     </>
   )
