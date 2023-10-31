@@ -24,7 +24,9 @@
       "@/*": ["src/*"],
       "@pages/*": ["src/pages/*"],
       "@utils/*": ["src/utils/*"],
-      "@store/*": ["src/store/*"]
+      "@store/*": ["src/store/*"],
+      "@app/*": ["src/app/*"],
+      "@api/*": ["src/api/*"]
     }
   },
   "include": ["src"],

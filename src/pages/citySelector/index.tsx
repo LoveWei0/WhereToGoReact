@@ -1,22 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 // css
 import './index.css'
 // classnames
 import classnames from 'classnames'
-import { getCitiesData } from '@/api/cities'
+// store -> AsyncCitiesData
+import { AsyncCitiesData } from '@/store/slice/citiesSlice'
 // hooks
-import { useAppSelector } from '@/app/hooks'
-// countSelect
-import { selectCount } from '@store/slice/countSlice'
+import { useAppSelector, useAppDispatch } from '@/app/hooks'
+// store -> initialState
+import { selectCityList, selectHotCities } from '@store/slice/citiesSlice'
 
 export default function CitySelector() {
+  const dispatch = useAppDispatch()
   const show = true
-  const handleClick = async () => {
-    const result = await getCitiesData()
-    console.log(result)
-  }
-  const counts = useAppSelector(selectCount)
-  console.log(counts)
+  useEffect(() => {
+    dispatch(AsyncCitiesData())
+  }, [])
+  const cityList = useAppSelector(selectCityList)
+  const hotCities = useAppSelector(selectHotCities)
+  console.log(cityList)
+  console.log(hotCities)
   return (
     <div className={classnames('city-selector', { hidden: !show })}>
       <div className="city-search">
@@ -39,7 +42,6 @@ export default function CitySelector() {
         </div>
       </div>
       CitySelector
-      <button onClick={handleClick}>请求</button>
     </div>
   )
 }

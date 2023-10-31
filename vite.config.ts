@@ -10,7 +10,9 @@ export default defineConfig({
       '@': join(__dirname, 'src'),
       '@pages': join(__dirname, 'src/pages'),
       '@utils': join(__dirname, 'src/utils'),
-      '@store': join(__dirname, 'src/store')
+      '@store': join(__dirname, 'src/store'),
+      '@app': join(__dirname, 'src/app/'),
+      '@api': join(__dirname, 'src/api/')
     }
   },
   server: {
