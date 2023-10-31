@@ -3,9 +3,14 @@ import React from 'react'
 import './index.css'
 // classnames
 import classnames from 'classnames'
+import { getCitiesData } from '@/api/cities'
 
 export default function CitySelector() {
   const show = true
+  const handleClick = async () => {
+    const result = await getCitiesData()
+    console.log(result)
+  }
   return (
     <div className={classnames('city-selector', { hidden: !show })}>
       <div className="city-search">
@@ -28,6 +33,7 @@ export default function CitySelector() {
         </div>
       </div>
       CitySelector
+      <button onClick={handleClick}>请求</button>
     </div>
   )
 }
