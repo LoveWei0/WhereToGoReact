@@ -4,6 +4,10 @@ import './index.css'
 // classnames
 import classnames from 'classnames'
 import { getCitiesData } from '@/api/cities'
+// hooks
+import { useAppSelector } from '@/app/hooks'
+// countSelect
+import { selectCount } from '@store/slice/countSlice'
 
 export default function CitySelector() {
   const show = true
@@ -11,6 +15,8 @@ export default function CitySelector() {
     const result = await getCitiesData()
     console.log(result)
   }
+  const counts = useAppSelector(selectCount)
+  console.log(counts)
   return (
     <div className={classnames('city-selector', { hidden: !show })}>
       <div className="city-search">
