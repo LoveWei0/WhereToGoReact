@@ -1,12 +1,14 @@
 import React from 'react'
 import './App.css'
 
-// component
+// common -> component
 import Header from './components/header'
 import Journey from './components/journey'
 import DepartDate from './components/departDate'
 import HighSpeed from './components/highSpeed'
 import Submit from './components/submit'
+// pages -> components
+import CitySelector from './pages/citySelector/index'
 
 export default function App() {
   return (
@@ -20,6 +22,7 @@ export default function App() {
         <HighSpeed />
         <Submit />
       </form>
+      <CitySelector />
     </>
   )
 }

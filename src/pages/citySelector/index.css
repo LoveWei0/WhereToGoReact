@@ -1,0 +1,54 @@
+.city-selector {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  min-height: 100%;
+  width: 100%;
+  z-index: 1000;
+}
+
+.city-search {
+  width: 100%;
+  height: 34px;
+  background-color: #00a8bc;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  padding: 5px 0;
+  position: relative;
+}
+
+.search-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+}
+
+.search-input-wrapper {
+  height: 32px;
+  font-size: 12px;
+  background-color: #fff;
+  margin-left: 42px;
+  margin-right: 15px;
+  border-radius: 5px;
+  padding-left: 5px;
+  text-align: left;
+}
+
+.search-input {
+  width: 80%;
+  height: 32px;
+  font-size: 12px;
+  border: 0;
+  color: #333;
+  outline: none;
+  background-color: 0;
+  vertical-align: top;
+  line-height: 1.5;
+  padding: 0;
+  padding-left: 5px;
+}
