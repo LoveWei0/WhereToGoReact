@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { RootState } from '../index'
 // api
 import { getCitiesData } from '@api/index'
-import { CitiesData } from '@api/types/citiesType'
+import type { CitiesData } from '@api/types/citiesType'
 
 export const AsyncCitiesData = createAsyncThunk('/cities', async () => {
   const result = await getCitiesData()

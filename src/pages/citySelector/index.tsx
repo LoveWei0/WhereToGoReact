@@ -9,6 +9,8 @@ import { AsyncCitiesData } from '@/store/slice/citiesSlice'
 import { useAppSelector, useAppDispatch } from '@/app/hooks'
 // store -> initialState
 import { selectCityList, selectHotCities } from '@store/slice/citiesSlice'
+// components
+import CityList from './components/CityList'
 
 export default function CitySelector() {
   const dispatch = useAppDispatch()
@@ -20,6 +22,12 @@ export default function CitySelector() {
   const hotCities = useAppSelector(selectHotCities)
   console.log(cityList)
   console.log(hotCities)
+  const cictesBoolean = () => {
+    if (cityList.length) {
+      return <CityList cityList={cityList} />
+    }
+    return <div>error</div>
+  }
   return (
     <div className={classnames('city-selector', { hidden: !show })}>
       <div className="city-search">
@@ -41,7 +49,7 @@ export default function CitySelector() {
           />
         </div>
       </div>
-      CitySelector
+      {cictesBoolean()}
     </div>
   )
 }
