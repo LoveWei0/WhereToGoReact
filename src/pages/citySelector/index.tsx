@@ -11,6 +11,7 @@ import { useAppSelector, useAppDispatch } from '@/app/hooks'
 import { selectCityList, selectHotCities } from '@store/slice/citiesSlice'
 // components
 import CityList from './components/CityList'
+import Suggest from './components/Suggest'
 
 export default function CitySelector() {
   const dispatch = useAppDispatch()
@@ -49,6 +50,7 @@ export default function CitySelector() {
           />
         </div>
       </div>
+      <Suggest />
       {cictesBoolean()}
     </div>
   )
