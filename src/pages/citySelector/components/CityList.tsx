@@ -6,6 +6,10 @@ interface PropType {
   cityList: CityListType
 }
 
+const alphabet = Array.from(new Array(26), (ele, index) => {
+  return String.fromCharCode(65 + index)
+})
+
 export default function CityList({ cityList }: PropType) {
   return (
     <div className="city-list">
@@ -17,6 +21,15 @@ export default function CityList({ cityList }: PropType) {
               citys={section.citys}
               key={section.title}
             />
+          )
+        })}
+      </div>
+      <div className="city-index">
+        {alphabet.map(alpha => {
+          return (
+            <>
+              <i className="city-index-item">{alpha}</i>
+            </>
           )
         })}
       </div>
