@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 // css
 import './index.css'
 // classnames
@@ -11,7 +11,10 @@ import { useAppSelector, useAppDispatch } from '@/app/hooks'
 import { selectCityList, selectHotCities } from '@store/slice/citiesSlice'
 // components
 import CityList from './components/CityList'
-import Suggest from './components/Suggest'
+// api
+import { getSearch } from '@/api/search'
+// type
+import type { ResultData } from '@api/types/searchType'
 
 export default function CitySelector() {
   const dispatch = useAppDispatch()
@@ -21,7 +24,6 @@ export default function CitySelector() {
   }, [])
   const cityList = useAppSelector(selectCityList)
   const hotCities = useAppSelector(selectHotCities)
-  console.log(cityList)
   console.log(hotCities)
   const cictesBoolean = () => {
     if (cityList.length) {
@@ -29,6 +31,19 @@ export default function CitySelector() {
     }
     return <div>error</div>
   }
+  const [searchKey, setSearchKey] = useState<string>('')
+  const [inputData, setInputData] = useState<ResultData>()
+  console.log(inputData)
+  const key = useMemo(() => {
+    return searchKey.trim()
+  }, [searchKey])
+  const handleClick = async (e: any) => {
+    if (e === 'Enter') {
+      const { result } = await getSearch(searchKey)
+      setInputData(result)
+    }
+  }
+  useEffect(() => {}, [])
   return (
     <div className={classnames('city-selector', { hidden: !show })}>
       <div className="city-search">
@@ -47,10 +62,25 @@ export default function CitySelector() {
             type="text"
             placeholder="城市、车站的中文或拼英"
             className="search-input"
+            value={searchKey}
+            onChange={e => setSearchKey(e.target.value)}
+            onKeyDown={e => handleClick(e.key)}
           />
         </div>
       </div>
-      <Suggest />
+      {Boolean(key) && (
+        <div className="city-suggest">
+          <ul className="city-suggest-ul">
+            {inputData?.map(item => {
+              return (
+                <li className="city-suggest-li" key={item.display}>
+                  {item.display}
+                </li>
+              )
+            })}
+          </ul>
+        </div>
+      )}
       {cictesBoolean()}
     </div>
   )

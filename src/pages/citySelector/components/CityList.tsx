@@ -28,7 +28,9 @@ export default function CityList({ cityList }: PropType) {
         {alphabet.map(alpha => {
           return (
             <>
-              <i className="city-index-item">{alpha}</i>
+              <i className="city-index-item" key={alpha}>
+                {alpha}
+              </i>
             </>
           )
         })}

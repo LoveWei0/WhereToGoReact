@@ -14,9 +14,11 @@ interface PropType {
 export default function CitySection({ title, citys = [] }: PropType) {
   return (
     <ul className="city-ul">
-      <li className="city-li" key={title}>
-        {title}
-      </li>
+      {
+        <li className="city-li" key={title}>
+          {title}
+        </li>
+      }
       {citys.map(city => {
         return (
           <>
