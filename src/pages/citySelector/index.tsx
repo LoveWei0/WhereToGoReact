@@ -3,12 +3,14 @@ import React, { useEffect, useMemo, useState } from 'react'
 import './index.css'
 // classnames
 import classnames from 'classnames'
-// store -> AsyncCitiesData
+// store -> Async
 import { AsyncCitiesData } from '@/store/slice/citiesSlice'
 // hooks
 import { useAppSelector, useAppDispatch } from '@/app/hooks'
 // store -> initialState
 import { selectCityList, selectHotCities } from '@store/slice/citiesSlice'
+// store -> actions
+import { hideCitySelector } from '@store/slice/citySelector'
 // components
 import CityList from './components/CityList'
 // api
@@ -16,9 +18,13 @@ import { getSearch } from '@/api/search'
 // type
 import type { ResultData } from '@api/types/searchType'
 
-export default function CitySelector() {
+interface PropType {
+  show: boolean
+}
+
+export default function CitySelector({ show }: PropType) {
   const dispatch = useAppDispatch()
-  const show = true
+
   useEffect(() => {
     dispatch(AsyncCitiesData())
   }, [])
@@ -33,7 +39,6 @@ export default function CitySelector() {
   }
   const [searchKey, setSearchKey] = useState<string>('')
   const [inputData, setInputData] = useState<ResultData>()
-  console.log(inputData)
   const key = useMemo(() => {
     return searchKey.trim()
   }, [searchKey])
@@ -43,11 +48,12 @@ export default function CitySelector() {
       setInputData(result)
     }
   }
-  useEffect(() => {}, [])
+  const onBack = () => dispatch(hideCitySelector())
+
   return (
     <div className={classnames('city-selector', { hidden: !show })}>
       <div className="city-search">
-        <div className="search-back">
+        <div className="search-back bg-red-500" onClick={onBack}>
           <svg width="42" height="42">
             <polyline
               points="25,13 16,21 25,29"

@@ -2,10 +2,12 @@ import { configureStore } from '@reduxjs/toolkit'
 
 // slice
 import citiesSlice from './slice/citiesSlice'
+import citySlice from './slice/citySelector'
 
 const store = configureStore({
   reducer: {
-    cities: citiesSlice
+    cities: citiesSlice,
+    city: citySlice
   }
 })
 

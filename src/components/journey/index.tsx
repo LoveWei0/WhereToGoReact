@@ -9,7 +9,7 @@ export default function Journey() {
   return (
     <>
       <div className="journey">
-        <div className="journey-station">
+        <div className="journey-station border-red-500">
           <input type="text" className="journey-input journey-from" />
         </div>
         <div className="journey-switch">

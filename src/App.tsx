@@ -9,8 +9,13 @@ import HighSpeed from './components/highSpeed'
 import Submit from './components/submit'
 // pages -> components
 import CitySelector from './pages/citySelector/index'
+// hooks
+import { useAppSelector } from '@app/hooks'
+// store -> citySelector
+import { selectShow } from '@store/slice/citySelector'
 
 export default function App() {
+  const show = useAppSelector(selectShow)
   return (
     <>
       <div className="header-wrapper">
@@ -22,7 +27,7 @@ export default function App() {
         <HighSpeed />
         <Submit />
       </form>
-      <CitySelector />
+      <CitySelector show={show} />
     </>
   )
 }
