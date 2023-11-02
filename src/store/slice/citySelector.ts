@@ -3,10 +3,14 @@ import type { RootState } from '../index'
 
 interface StateType {
   show: boolean
+  from: string
+  to: string
 }
 
 const initialState: StateType = {
-  show: false
+  show: false,
+  from: '北京',
+  to: '上海'
 }
 
 const citySlice = createSlice({
@@ -23,7 +27,11 @@ const citySlice = createSlice({
   }
 })
 
-export const selectShow = (state: RootState) => state.city.show
+const selectShow = (state: RootState) => state.city.show
+const selectFrom = (state: RootState) => state.city.from
+const selectTo = (state: RootState) => state.city.to
+
+export { selectShow, selectFrom, selectTo }
 
 export const { showCitySelector, hideCitySelector } = citySlice.actions
 
