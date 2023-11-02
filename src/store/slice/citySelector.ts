@@ -22,7 +22,9 @@ const citySlice = createSlice({
     },
     hideCitySelector(state) {
       state.show = false
-      console.log(state.show)
+    },
+    showDataSelector(state) {
+      state.show = true
     }
   }
 })
@@ -33,6 +35,7 @@ const selectTo = (state: RootState) => state.city.to
 
 export { selectShow, selectFrom, selectTo }
 
-export const { showCitySelector, hideCitySelector } = citySlice.actions
+export const { showCitySelector, hideCitySelector, showDataSelector } =
+  citySlice.actions
 
 export default citySlice.reducer

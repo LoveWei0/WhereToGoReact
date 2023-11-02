@@ -9,6 +9,7 @@ import HighSpeed from './components/highSpeed'
 import Submit from './components/submit'
 // pages -> components
 import CitySelector from './pages/citySelector/index'
+import DataSelector from './pages/dataSelector/index'
 // hooks
 import { useAppSelector } from '@app/hooks'
 // store -> citySelector
@@ -28,6 +29,7 @@ export default function App() {
         <Submit />
       </form>
       <CitySelector show={show} />
+      <DataSelector />
     </>
   )
 }
