@@ -8,7 +8,7 @@ import { AsyncCitiesData } from '@/store/slice/citiesSlice'
 // hooks
 import { useAppSelector, useAppDispatch } from '@/app/hooks'
 // store -> initialState
-import { selectCityList, selectHotCities } from '@store/slice/citiesSlice'
+import { selectCityList } from '@store/slice/citiesSlice'
 // store -> actions
 import { hideCitySelector } from '@store/slice/citySelector'
 // components
@@ -29,8 +29,7 @@ export default function CitySelector({ show }: PropType) {
     dispatch(AsyncCitiesData())
   }, [])
   const cityList = useAppSelector(selectCityList)
-  const hotCities = useAppSelector(selectHotCities)
-  console.log(hotCities)
+  // const hotCities = useAppSelector(selectHotCities)
   const cictesBoolean = () => {
     if (cityList.length) {
       return <CityList cityList={cityList} />

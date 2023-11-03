@@ -57,7 +57,28 @@
 .data-table-weeks th {
   text-align: center;
 }
-/*
-.data-table-weeks th:nth-last-child(-1) {
-  color: #ff9036 !important;
-} */
+
+.data-table-days {
+  font-size: 14px;
+  color: #8c8c8c;
+}
+
+.date-table-days td {
+  background-color: #fff;
+  color: #000;
+  border: 2.5px solid #e3e3e3;
+  text-align: center;
+  margin: 0 2px 2px 0;
+  height: 40px;
+  width: 40px;
+}
+
+.data-table-days td.null {
+  background-color: #e3e3e3;
+}
+
+.data-table-days td.disabled {
+  color: #a7a7a7;
+  background-color: #f3f3f3;
+  cursor: not-allowed;
+}
