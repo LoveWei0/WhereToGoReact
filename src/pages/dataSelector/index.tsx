@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 // components
 import Header from '@/components/header'
 import Month from './components/Month'
@@ -15,11 +15,13 @@ export default function DataSelector() {
   now.setSeconds(0)
   now.setMilliseconds(0)
   now.setDate(1)
-  const monthSequence = [now.getTime()]
+  const monthSequence = useMemo(() => {
+    return [now.getTime()]
+  }, [now.getTime()])
 
   now.setMonth(now.getMonth() + 1)
   monthSequence.push(now.getTime())
-  console.log(monthSequence)
+
   return (
     <div className={classnames('data-selector', { hidden: !show })}>
       <Header title="日期选择" />

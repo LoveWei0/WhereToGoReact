@@ -27,12 +27,10 @@ export default function DepartDate() {
     dispatch(showDataSelector)
   }
   return (
-    <>
-      <div className="depart-date" onClick={showDepartData}>
-        <input type="hidden" name="date" value={departDateString} />
-        {departDateString}
-        <span className="depart-week">{weekString}</span>
-      </div>
-    </>
+    <div className="depart-date" onClick={showDepartData}>
+      <input type="hidden" name="date" value={departDateString} />
+      {departDateString}
+      <span className="depart-week">{weekString}</span>
+    </div>
   )
 }

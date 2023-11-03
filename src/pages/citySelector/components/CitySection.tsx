@@ -20,11 +20,7 @@ export default function CitySection({ title, citys = [] }: PropType) {
         </li>
       }
       {citys.map(city => {
-        return (
-          <>
-            <CityItem key={city.name} name={city.name} />
-          </>
-        )
+        return <CityItem key={city.name} name={city.name} />
       })}
     </ul>
   )
