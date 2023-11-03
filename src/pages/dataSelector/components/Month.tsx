@@ -5,13 +5,13 @@ interface PropType {
 }
 
 const weeksData = [
-  { weekName: '周一' },
-  { weekName: '周二' },
-  { weekName: '周三' },
-  { weekName: '周四' },
-  { weekName: '周五' },
-  { weekName: '周六' },
-  { weekName: '周日' }
+  { weekName: '周一', color: { color: '' } },
+  { weekName: '周二', color: { color: '' } },
+  { weekName: '周三', color: { color: '' } },
+  { weekName: '周四', color: { color: '' } },
+  { weekName: '周五', color: { color: '' } },
+  { weekName: '周六', color: { color: '#ff9036' } },
+  { weekName: '周日', color: { color: '#ff9036' } }
 ]
 
 export default function Month({ startingTimeInMonth }: PropType) {
@@ -39,16 +39,6 @@ export default function Month({ startingTimeInMonth }: PropType) {
   //   const week = days.slice(row * 7, (row + 1) * 7)
   //   weeks.push(week)
   // }
-  const YearOrMonth = () => {
-    return (
-      <tr>
-        <td colSpan={7}>
-          {startDay.getFullYear()}年{startDay.getMonth() + 1}月
-        </td>
-      </tr>
-    )
-  }
-
   const WeeksData = () => {
     return (
       <>
@@ -65,7 +55,7 @@ export default function Month({ startingTimeInMonth }: PropType) {
               {/* {weeksData.map((week, index) => {
           return <th key={index}>{week.weekName}</th>
         })} */}
-              <th>{weeks.weekName}</th>
+              <th style={weeks.color}>{weeks.weekName}</th>
             </tr>
           )
         })}
@@ -76,7 +66,11 @@ export default function Month({ startingTimeInMonth }: PropType) {
     <div className="data-table">
       <table>
         <thead>
-          <YearOrMonth />
+          <tr>
+            <td colSpan={7}>
+              {startDay.getFullYear()}年{startDay.getMonth() + 1}月
+            </td>
+          </tr>
         </thead>
         <tbody>
           <WeeksData />

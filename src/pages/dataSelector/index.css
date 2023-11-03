@@ -21,9 +21,9 @@
   text-align: left;
 }
 
-.data-table tr,
-.data-table td,
-.data-table th {
+.data-table table thead tr,
+.data-table table thead tr td,
+.data-table table tbody tr th {
   padding: 0;
   margin: 0;
 }
@@ -49,7 +49,7 @@
   color: #8c8c8c;
   font-size: 14px;
   text-align: center;
-  border-left: 1px solid #ccc;
+  border-left: 1px solid red;
   border-right: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
 }
@@ -57,7 +57,7 @@
 .data-table-weeks th {
   text-align: center;
 }
-
-.data-table-weeks .weekend {
+/*
+.data-table-weeks th:nth-last-child(-1) {
   color: #ff9036 !important;
-}
+} */
