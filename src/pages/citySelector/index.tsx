@@ -52,7 +52,7 @@ export default function CitySelector({ show }: PropType) {
   return (
     <div className={classnames('city-selector', { hidden: !show })}>
       <div className="city-search">
-        <div className="search-back" onClick={onBack}>
+        <div className="search-back bg-red-600" onClick={onBack}>
           <svg width="42" height="42">
             <polyline
               points="25,13 16,21 25,29"

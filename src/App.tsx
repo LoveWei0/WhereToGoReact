@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import './App.css'
 
 // common -> component
@@ -17,10 +17,15 @@ import { selectShow } from '@store/slice/citySelector'
 
 export default function App() {
   const show = useAppSelector(selectShow)
+  const onBack = useCallback(() => {
+    console.log('日期选择', window.history)
+
+    window.history.back()
+  }, [])
   return (
     <>
       <div className="header-wrapper">
-        <Header title={'火车票'} />
+        <Header title={'火车票'} onBack={onBack} />
       </div>
       <form action="./query.html" className="form">
         <Journey />
@@ -29,7 +34,7 @@ export default function App() {
         <Submit />
       </form>
       <CitySelector show={show} />
-      <DataSelector />
+      <DataSelector show={show} />
     </>
   )
 }

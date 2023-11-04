@@ -24,7 +24,8 @@ export default function DepartDate() {
     (isToday ? '今天' : '')
   const dispatch = useAppDispatch()
   const showDepartData = () => {
-    dispatch(showDataSelector)
+    console.log(123)
+    dispatch(showDataSelector())
   }
   return (
     <div className="depart-date" onClick={showDepartData}>
