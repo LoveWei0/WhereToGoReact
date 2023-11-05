@@ -44,6 +44,7 @@ export default function Journey() {
             className="journey-input journey-to"
             readOnly
             value={to}
+            name="to"
           />
         </div>
       </div>

@@ -29,7 +29,6 @@ const Day = ({ day }: any) => {
 }
 
 export default function Week({ days }: DaysType) {
-  console.log('days', days)
   return (
     <tr className="data-table-days">
       {days.map((day, index) => {

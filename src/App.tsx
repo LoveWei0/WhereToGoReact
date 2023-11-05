@@ -13,15 +13,14 @@ import DataSelector from './pages/dataSelector/index'
 // hooks
 import { useAppSelector } from '@app/hooks'
 // store -> citySelector
-import { selectShow } from '@store/slice/citySelector'
+import { selectIsCityShow, selectIsDataShow } from '@store/slice/citySelector'
 
 export default function App() {
-  const show = useAppSelector(selectShow)
+  const isCityShow = useAppSelector(selectIsCityShow)
   const onBack = useCallback(() => {
-    console.log('日期选择', window.history)
-
     window.history.back()
   }, [])
+  const isDataShow = useAppSelector(selectIsDataShow)
   return (
     <>
       <div className="header-wrapper">
@@ -33,8 +32,8 @@ export default function App() {
         <HighSpeed />
         <Submit />
       </form>
-      <CitySelector show={show} />
-      <DataSelector show={show} />
+      <CitySelector show={isCityShow} />
+      <DataSelector show={isDataShow} />
     </>
   )
 }

@@ -2,15 +2,21 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { RootState } from '../index'
 
 interface StateType {
-  show: boolean
+  isCityShow: boolean
   from: string
   to: string
+  isDataShow: boolean
+  isDateSelectorVisible: boolean
+  currentSelectingLeftCity: boolean
 }
 
 const initialState: StateType = {
-  show: false,
+  isCityShow: false,
   from: '北京',
-  to: '上海'
+  to: '上海',
+  isDataShow: false,
+  isDateSelectorVisible: false,
+  currentSelectingLeftCity: false
 }
 
 const citySlice = createSlice({
@@ -18,31 +24,55 @@ const citySlice = createSlice({
   initialState,
   reducers: {
     showCitySelector(state, action) {
-      state.show = action.payload
+      state.isCityShow = action.payload
     },
     hideCitySelector(state) {
-      state.show = false
+      state.isCityShow = false
     },
     showDataSelector(state) {
-      state.show = true
+      state.isDateSelectorVisible = true
     },
     hideDateSelector(state) {
-      state.show = false
+      state.isCityShow = false
+    },
+    setFrom(state, action) {
+      state.from = action.payload
+    },
+    setTo(state, action) {
+      state.to = action.payload
+    },
+    setSelectedCity(state, actions) {
+      if (state.currentSelectingLeftCity) {
+        setFrom(actions.payload)
+      } else {
+        setTo(actions.payload)
+      }
     }
   }
 })
 
-const selectShow = (state: RootState) => state.city.show
+const selectIsCityShow = (state: RootState) => state.city.isCityShow
 const selectFrom = (state: RootState) => state.city.from
 const selectTo = (state: RootState) => state.city.to
+const selectIsDate = (state: RootState) => state.city.isDateSelectorVisible
+const selectIsDataShow = (state: RootState) => state.city.isDateSelectorVisible
 
-export { selectShow, selectFrom, selectTo }
+export {
+  selectIsCityShow,
+  selectFrom,
+  selectTo,
+  selectIsDate,
+  selectIsDataShow
+}
 
 export const {
   showCitySelector,
   hideCitySelector,
   showDataSelector,
-  hideDateSelector
+  hideDateSelector,
+  setFrom,
+  setTo,
+  setSelectedCity
 } = citySlice.actions
 
 export default citySlice.reducer
