@@ -32,15 +32,15 @@ export default function DataSelector({ show }: PropType) {
   const dispatch = useAppDispatch()
 
   const onBack = () => {
-    dispatch(hideDateSelector)
+    dispatch(hideDateSelector())
   }
 
   return (
     <div className={classnames('data-selector', { hidden: !show })}>
       <Header title="日期选择" onBack={onBack} />
       <div className="data-selector-tables">
-        {monthSequence.map(month => {
-          return <Month key={month} startingTimeInMonth={month} />
+        {monthSequence.map((month, index) => {
+          return <Month key={index} startingTimeInMonth={month} />
         })}
       </div>
     </div>

@@ -5,16 +5,6 @@ interface PropType {
   startingTimeInMonth: number
 }
 
-const weeksData = [
-  { weekName: '周一', color: { color: '' } },
-  { weekName: '周二', color: { color: '' } },
-  { weekName: '周三', color: { color: '' } },
-  { weekName: '周四', color: { color: '' } },
-  { weekName: '周五', color: { color: '' } },
-  { weekName: '周六', color: { color: '#ff9036' } },
-  { weekName: '周日', color: { color: '#ff9036' } }
-]
-
 export default function Month({ startingTimeInMonth }: PropType) {
   const startDay = new Date(startingTimeInMonth)
   const currentDay = new Date(startingTimeInMonth)
@@ -35,31 +25,29 @@ export default function Month({ startingTimeInMonth }: PropType) {
     const week = days.slice(row * 7, (row + 1) * 7)
     weeks.push(week)
   }
-  const WeeksData = () => {
-    return (
-      <>
-        {weeksData.map((weeks, index) => {
-          return (
-            <tr className="data-table-weeks" key={index}>
-              <th style={weeks.color}>{weeks.weekName}</th>
-            </tr>
-          )
-        })}
-      </>
-    )
-  }
   return (
     <div className="data-table">
       <table>
         <thead>
           <tr>
             <td colSpan={7}>
-              {startDay.getFullYear()}年{startDay.getMonth() + 1}月
+              <h5>
+                {' '}
+                {startDay.getFullYear()}年{startDay.getMonth() + 1}月
+              </h5>
             </td>
           </tr>
         </thead>
         <tbody>
-          <WeeksData />
+          <tr className="data-table-weeks">
+            <th>周一</th>
+            <th>周二</th>
+            <th>周三</th>
+            <th>周四</th>
+            <th>周五</th>
+            <th className="weekend">周六</th>
+            <th className="weekend">周日</th>
+          </tr>
           {weeks.map((week, index) => {
             return <Week key={index} days={week} />
           })}

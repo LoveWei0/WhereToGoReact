@@ -33,7 +33,7 @@ const citySlice = createSlice({
       state.isDateSelectorVisible = true
     },
     hideDateSelector(state) {
-      state.isCityShow = false
+      state.isDateSelectorVisible = false
     },
     setFrom(state, action) {
       state.from = action.payload

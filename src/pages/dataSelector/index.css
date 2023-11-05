@@ -6,7 +6,6 @@
   min-height: 100%;
   margin-bottom: 70px;
   z-index: 1000;
-  background-color: red;
 }
 
 .data-selector-tables {
@@ -14,7 +13,7 @@
   background-color: #f3f3f3;
 }
 
-.data-table {
+.data-table table {
   width: 100%;
   margin-bottom: 15px;
   border-collapse: collapse;
@@ -29,12 +28,12 @@
   margin: 0;
 }
 
-.data-table thead td {
+.data-table table thead tr td {
   height: 39px;
   background-color: #fff;
 }
 
-.data-table thead tr td {
+.data-table table thead tr td h5 {
   font-size: 18px;
   line-height: 30px;
   text-align: center;
@@ -44,13 +43,13 @@
   border: 1px solid #cdcdcd;
 }
 
-.data-table-weeks {
+.data-table table .data-table-weeks {
   height: 23px;
   background-color: #f3f3f3;
   color: #8c8c8c;
   font-size: 14px;
   text-align: center;
-  border-left: 1px solid red;
+  border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
 }
@@ -59,12 +58,16 @@
   text-align: center;
 }
 
+.data-table .weekend {
+  color: #ff9036 !important;
+}
+
 .data-table-days {
   font-size: 14px;
   color: #8c8c8c;
 }
 
-.date-table-days td {
+.data-table-days td {
   background-color: #fff;
   color: #000;
   border: 2.5px solid #e3e3e3;
